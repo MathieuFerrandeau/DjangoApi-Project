@@ -1,10 +1,22 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
+# third party imports
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-def test_view(request):
+
+class TestView(APIView):
+    def get(self, request, *args, **kwargs):
+        data = {
+            'name': 'jhon',
+            'age': '33'
+        }
+        return Response(data)
+
+"""def test_view(request):
     data = {
         'name': 'jhon',
         'age': '33'
     }
-    return JsonResponse(data)
+    return JsonResponse(data)"""
